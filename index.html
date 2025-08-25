@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">📸 PhotoGallery</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Photo Gallery</h1>
+      <p>Explore breathtaking collections of Nature, Anime, Space & more.</p>
+      <a href="#categories" class="btn">Explore Gallery</a>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="categories" class="categories">
+    <h2>Photo Categories</h2>
+    <div class="card-container">
+
+      <a href="nature.html" class="card">
+      <img src="nature.jpg" alt="Nature">
+      <h3>Nature</h3>
+        </a>
+
+        <a href="anime.html" class="card">
+        <img src="1.jpg" alt="Anime">
+        <h3>Anime</h3>
+        </a>
+
+        <a href="vehicles.html" class="card">
+        <img src="car.webp" alt="Vehicles">
+        <h3>Vehicles</h3>
+        </a>
+
+        <a href="wildlife.html" class="card">
+        <img src="animal.jpg" alt="Wildlife">
+        <h3>Wildlife</h3>
+        </a>
+        
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 PhotoGallery | Designed by You</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
