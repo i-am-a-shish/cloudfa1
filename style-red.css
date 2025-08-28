@@ -1,3 +1,6 @@
+/* Alternative Red-Black Theme CSS */
+/* To use this theme, change the link in your HTML files from "style.css" to "style-red.css" */
+
 /* Reset & Base Styles */
 * {
   margin: 0;
@@ -7,7 +10,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0a 0%, #0f1a0f 25%, #1a2e1a 50%, #0f1a0f 75%, #0a0a0a 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0f0f 25%, #2e1a1a 50%, #1a0f0f 75%, #0a0a0a 100%);
   color: #ffffff;
   overflow-x: hidden;
   line-height: 1.6;
@@ -20,17 +23,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 255, 0, 0.1);
+  background: rgba(255, 0, 0, 0.1);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00ff41 0%, #00cc33 100%);
+  background: linear-gradient(180deg, #ff0040 0%, #cc0033 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00cc33 0%, #00ff41 100%);
+  background: linear-gradient(180deg, #cc0033 0%, #ff0040 100%);
 }
 
 /* Navbar - Elegant Glass Design */
@@ -41,8 +44,8 @@ body {
   padding: 20px 40px;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(20px);
-  border-bottom: 2px solid #00ff41;
-  box-shadow: 0 8px 32px rgba(0, 255, 65, 0.2);
+  border-bottom: 2px solid #ff0040;
+  box-shadow: 0 8px 32px rgba(255, 0, 64, 0.2);
   position: fixed;
   top: 0;
   width: 100%;
@@ -52,7 +55,7 @@ body {
 .logo {
   font-size: 26px;
   font-weight: 800;
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 50%, #00ff88 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 50%, #ff4080 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -84,7 +87,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 64, 0.2), transparent);
   transition: left 0.6s ease;
 }
 
@@ -93,35 +96,35 @@ body {
 }
 
 .nav-links a:hover {
-  background: rgba(0, 255, 65, 0.1);
+  background: rgba(255, 0, 64, 0.1);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .nav-links a.active {
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 100%);
   color: #000;
-  box-shadow: 0 8px 25px rgba(0, 255, 65, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 0, 64, 0.4);
 }
 
 .menu-toggle {
   display: none;
   font-size: 22px;
   cursor: pointer;
-  color: #00ff41;
+  color: #ff0040;
   padding: 8px;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
-  background: rgba(0, 255, 65, 0.1);
+  background: rgba(255, 0, 64, 0.1);
 }
 
-/* Hero Section - Dynamic Green Gradient */
+/* Hero Section - Dynamic Red Gradient */
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 25%, #00ff88 50%, #00cc33 75%, #00ff41 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 25%, #ff4080 50%, #cc0033 75%, #ff0040 100%);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
   display: flex;
@@ -184,14 +187,14 @@ body {
 .btn {
   padding: 18px 40px;
   background: rgba(0, 0, 0, 0.8);
-  color: #00ff41;
+  color: #ff0040;
   text-decoration: none;
   font-weight: 600;
   border-radius: 50px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.1rem;
   letter-spacing: 1px;
-  border: 3px solid #00ff41;
+  border: 3px solid #ff0040;
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -204,7 +207,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 64, 0.3), transparent);
   transition: left 0.6s ease;
 }
 
@@ -213,17 +216,17 @@ body {
 }
 
 .btn:hover {
-  background: #00ff41;
+  background: #ff0040;
   color: #000;
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(0, 255, 65, 0.4);
-  border-color: #00ff41;
+  box-shadow: 0 15px 40px rgba(255, 0, 64, 0.4);
+  border-color: #ff0040;
 }
 
 /* Categories Section - Elegant Cards */
 .categories {
   padding: 120px 40px;
-  background: linear-gradient(180deg, #0a0a0a 0%, #0f1a0f 100%);
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a0f0f 100%);
   position: relative;
 }
 
@@ -234,14 +237,14 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #00ff41, #00cc33, #00ff88, transparent);
+  background: linear-gradient(90deg, transparent, #ff0040, #cc0033, #ff4080, transparent);
 }
 
 .categories h2 {
   font-size: 3.5rem;
   margin-bottom: 80px;
   text-align: center;
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 50%, #00ff88 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 50%, #ff4080 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -259,7 +262,7 @@ body {
 
 .card {
   background: rgba(0, 0, 0, 0.8);
-  border: 2px solid #00ff41;
+  border: 2px solid #ff0040;
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -274,7 +277,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 204, 51, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(255, 0, 64, 0.1) 0%, rgba(204, 0, 51, 0.1) 100%);
   opacity: 0;
   transition: opacity 0.5s ease;
 }
@@ -285,8 +288,8 @@ body {
 
 .card:hover {
   transform: translateY(-15px) scale(1.03);
-  box-shadow: 0 25px 60px rgba(0, 255, 65, 0.3);
-  border-color: #00cc33;
+  box-shadow: 0 25px 60px rgba(255, 0, 64, 0.3);
+  border-color: #cc0033;
 }
 
 .card img {
@@ -304,7 +307,7 @@ body {
   padding: 25px;
   font-size: 1.3rem;
   text-align: center;
-  color: #00ff41;
+  color: #ff0040;
   background: rgba(0, 0, 0, 0.9);
   font-weight: 600;
   position: relative;
@@ -318,7 +321,7 @@ body {
   transform: translateX(-50%);
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, #00ff41, #00cc33, #00ff88);
+  background: linear-gradient(90deg, #ff0040, #cc0033, #ff4080);
   transition: width 0.4s ease;
 }
 
@@ -329,7 +332,7 @@ body {
 /* Contact Section - Glass Form */
 .contact {
   padding: 120px 40px;
-  background: linear-gradient(180deg, #0f1a0f 0%, #0a0a0a 100%);
+  background: linear-gradient(180deg, #1a0f0f 0%, #0a0a0a 100%);
   text-align: center;
   position: relative;
 }
@@ -341,13 +344,13 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #00ff41, #00cc33, #00ff88, transparent);
+  background: linear-gradient(90deg, transparent, #ff0040, #cc0033, #ff4080, transparent);
 }
 
 .contact h2 {
   font-size: 3.5rem;
   margin-bottom: 80px;
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 50%, #00ff88 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 50%, #ff4080 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -365,7 +368,7 @@ body {
 .contact input, .contact textarea {
   padding: 20px 25px;
   background: rgba(0, 0, 0, 0.8);
-  border: 2px solid #00ff41;
+  border: 2px solid #ff0040;
   border-radius: 15px;
   color: #ffffff;
   font-size: 1rem;
@@ -375,19 +378,19 @@ body {
 
 .contact input:focus, .contact textarea:focus {
   outline: none;
-  border-color: #00cc33;
+  border-color: #cc0033;
   background: rgba(0, 0, 0, 0.9);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 0, 64, 0.3);
 }
 
 .contact input::placeholder, .contact textarea::placeholder {
-  color: rgba(0, 255, 65, 0.6);
+  color: rgba(255, 0, 64, 0.6);
 }
 
 .contact button {
   padding: 20px 40px;
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 100%);
   border: none;
   color: #000;
   cursor: pointer;
@@ -417,7 +420,7 @@ body {
 
 .contact button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(0, 255, 65, 0.4);
+  box-shadow: 0 15px 40px rgba(255, 0, 64, 0.4);
 }
 
 /* Footer - Elegant Design */
@@ -425,15 +428,15 @@ footer {
   text-align: center;
   padding: 40px;
   background: rgba(0, 0, 0, 0.9);
-  border-top: 2px solid #00ff41;
-  color: rgba(0, 255, 65, 0.8);
+  border-top: 2px solid #ff0040;
+  color: rgba(255, 0, 64, 0.8);
   position: relative;
 }
 
 /* Gallery Page Styles */
 .gallery-page {
   padding: 140px 40px 80px;
-  background: linear-gradient(180deg, #0a0a0a 0%, #0f1a0f 100%);
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a0f0f 100%);
   min-height: 100vh;
 }
 
@@ -441,7 +444,7 @@ footer {
   font-size: 3.5rem;
   margin-bottom: 80px;
   text-align: center;
-  background: linear-gradient(135deg, #00ff41 0%, #00cc33 50%, #00ff88 100%);
+  background: linear-gradient(135deg, #ff0040 0%, #cc0033 50%, #ff4080 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -459,7 +462,7 @@ footer {
 
 .gallery-item {
   background: rgba(0, 0, 0, 0.8);
-  border: 2px solid #00ff41;
+  border: 2px solid #ff0040;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -470,8 +473,8 @@ footer {
 
 .gallery-item:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 60px rgba(0, 255, 65, 0.3);
-  border-color: #00cc33;
+  box-shadow: 0 25px 60px rgba(255, 0, 64, 0.3);
+  border-color: #cc0033;
 }
 
 .gallery-item img {
@@ -492,9 +495,9 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.9);
-  color: #00ff41;
+  color: #ff0040;
   padding: 12px 24px;
-  border: 2px solid #00ff41;
+  border: 2px solid #ff0040;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
@@ -505,10 +508,10 @@ footer {
 }
 
 .download-btn:hover {
-  background: #00ff41;
+  background: #ff0040;
   color: #000;
   transform: translateX(-50%) translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 0, 64, 0.4);
 }
 
 /* Responsive Design */
@@ -526,7 +529,7 @@ footer {
     top: 70px;
     left: 0;
     padding: 20px;
-    border-bottom: 2px solid #00ff41;
+    border-bottom: 2px solid #ff0040;
   }
 
   .nav-links.active {
@@ -597,10 +600,10 @@ footer {
 
 /* Hover Effects */
 .card:hover, .gallery-item:hover {
-  border-color: #00cc33;
+  border-color: #cc0033;
 }
 
 /* Glow Effects */
 .card:hover, .gallery-item:hover {
-  box-shadow: 0 25px 60px rgba(0, 255, 65, 0.25);
+  box-shadow: 0 25px 60px rgba(255, 0, 64, 0.25);
 }
