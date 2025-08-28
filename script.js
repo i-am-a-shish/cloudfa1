@@ -1,4 +1,4 @@
-// NeonVault Gallery - Sophisticated Green-Black Theme Effects
+// NeonVault Gallery - Sophisticated Red-Black Theme Effects
 
 function toggleMenu() {
   const navLinks = document.getElementById("navLinks");
@@ -47,7 +47,7 @@ function addHoverEffects() {
   interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', function() {
       this.style.transform = 'translateY(-8px) scale(1.02)';
-      this.style.boxShadow = '0 20px 40px rgba(0, 255, 65, 0.3)';
+      this.style.boxShadow = '0 20px 40px rgba(255, 0, 64, 0.3)';
     });
     
     element.addEventListener('mouseleave', function() {
@@ -90,8 +90,8 @@ function addFormInteractions() {
   formInputs.forEach(input => {
     input.addEventListener('focus', function() {
       this.parentElement && (this.parentElement.style.transform = 'scale(1.02)');
-      this.style.borderColor = '#00cc33';
-      this.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.4)';
+      this.style.borderColor = '#cc0033';
+      this.style.boxShadow = '0 0 20px rgba(255, 0, 64, 0.4)';
     });
     
     input.addEventListener('blur', function() {
@@ -184,7 +184,6 @@ function enableDownloadOnClick() {
     const item = e.target.closest('.gallery-item');
     if (!item) return;
 
-    // Avoid double-trigger when clicking the explicit download button
     if (e.target.closest('.download-btn')) return;
 
     const img = item.querySelector('img');
@@ -192,7 +191,6 @@ function enableDownloadOnClick() {
 
     const link = document.createElement('a');
     link.href = img.src;
-    // Try to infer filename
     try {
       const url = new URL(img.src);
       const path = url.pathname.split('/').pop() || 'image.jpg';
@@ -255,7 +253,7 @@ style.textContent = `
   #preloader {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, #0a0a0a, #0f1a0f);
+    background: linear-gradient(135deg, #0a0a0a, #1a0f0f);
     display: grid;
     place-items: center;
     z-index: 2000;
@@ -267,7 +265,7 @@ style.textContent = `
     font-weight: 800;
     letter-spacing: 2px;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #00ff41, #00cc33, #00ff88);
+    background: linear-gradient(135deg, #ff0040, #cc0033, #ff4080);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -282,7 +280,7 @@ style.textContent = `
   }
   .preloader-bar-fill {
     display: block; height: 100%; width: 40%; border-radius: 10px;
-    background: linear-gradient(90deg, #00ff41, #00cc33, #00ff88);
+    background: linear-gradient(90deg, #ff0040, #cc0033, #ff4080);
     animation: preloader-slide 1.2s ease-in-out infinite;
   }
   .preloader-text { color: rgba(255,255,255,0.7); font-size: 14px; }
@@ -293,14 +291,13 @@ style.textContent = `
   .floating-card { animation: float 6s ease-in-out infinite; }
   @keyframes float { 0%, 100% { transform: translateY(0px);} 50% { transform: translateY(-10px);} }
   
-  .ripple { position: absolute; border-radius: 50%; background: rgba(0, 255, 65, 0.4); transform: scale(0); animation: ripple-animation 0.6s linear; pointer-events: none; }
+  .ripple { position: absolute; border-radius: 50%; background: rgba(255, 0, 64, 0.35); transform: scale(0); animation: ripple-animation 0.6s linear; pointer-events: none; }
   @keyframes ripple-animation { to { transform: scale(4); opacity: 0; } }
   
   .card, .gallery-item { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
   .btn { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
   input, textarea { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
   .navbar { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-  /* Smooth transitions for interactive elements */
   * { transition-property: transform, box-shadow, border-color, background-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 `;
 document.head.appendChild(style);
