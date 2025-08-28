@@ -5,6 +5,30 @@ function toggleMenu() {
   navLinks.classList.toggle("active");
 }
 
+// Preloader overlay
+function initPreloader() {
+  const preloader = document.createElement('div');
+  preloader.id = 'preloader';
+  preloader.innerHTML = `
+    <div class="preloader-content">
+      <div class="preloader-logo">⚡ NeonVault</div>
+      <div class="preloader-bar">
+        <span class="preloader-bar-fill"></span>
+      </div>
+      <div class="preloader-text">Preparing your gallery...</div>
+    </div>
+  `;
+  document.body.appendChild(preloader);
+
+  // Hide preloader on full load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.classList.add('hide');
+      setTimeout(() => preloader.remove(), 400);
+    }, 400);
+  });
+}
+
 // Add elegant loading effect
 function addLoadingEffect() {
   const body = document.body;
@@ -65,13 +89,13 @@ function addFormInteractions() {
   
   formInputs.forEach(input => {
     input.addEventListener('focus', function() {
-      this.parentElement.style.transform = 'scale(1.02)';
+      this.parentElement && (this.parentElement.style.transform = 'scale(1.02)');
       this.style.borderColor = '#00cc33';
       this.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.4)';
     });
     
     input.addEventListener('blur', function() {
-      this.parentElement.style.transform = 'scale(1)';
+      this.parentElement && (this.parentElement.style.transform = 'scale(1)');
       this.style.boxShadow = '';
     });
   });
@@ -83,8 +107,10 @@ function addPageTransitions() {
   
   links.forEach(link => {
     link.addEventListener('click', function(e) {
-      e.preventDefault();
       const targetId = this.getAttribute('href');
+      const isHash = targetId && targetId.startsWith('#');
+      if (!isHash) return;
+      e.preventDefault();
       const targetSection = document.querySelector(targetId);
       
       if (targetSection) {
@@ -152,6 +178,34 @@ function addGradientAnimation() {
   });
 }
 
+// Enable click-to-download on gallery items
+function enableDownloadOnClick() {
+  document.addEventListener('click', function(e) {
+    const item = e.target.closest('.gallery-item');
+    if (!item) return;
+
+    // Avoid double-trigger when clicking the explicit download button
+    if (e.target.closest('.download-btn')) return;
+
+    const img = item.querySelector('img');
+    if (!img || !img.src) return;
+
+    const link = document.createElement('a');
+    link.href = img.src;
+    // Try to infer filename
+    try {
+      const url = new URL(img.src);
+      const path = url.pathname.split('/').pop() || 'image.jpg';
+      link.download = path;
+    } catch (err) {
+      link.download = 'image.jpg';
+    }
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  });
+}
+
 // Add ripple effect to buttons
 function addRippleEffect() {
   const buttons = document.querySelectorAll('.btn, .contact button');
@@ -180,6 +234,7 @@ function addRippleEffect() {
 
 // Initialize all effects when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+  initPreloader();
   addLoadingEffect();
   addHoverEffects();
   addScrollReveal();
@@ -190,68 +245,62 @@ document.addEventListener('DOMContentLoaded', function() {
   addFloatingAnimation();
   addGradientAnimation();
   addRippleEffect();
+  enableDownloadOnClick();
 });
 
 // Add enhanced CSS for sophisticated effects
 const style = document.createElement('style');
 style.textContent = `
-  .fade-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+  /* Preloader */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #0a0a0a, #0f1a0f);
+    display: grid;
+    place-items: center;
+    z-index: 2000;
+    transition: opacity 0.4s ease;
   }
-  
-  .floating-card {
-    animation: float 6s ease-in-out infinite;
+  #preloader.hide { opacity: 0; pointer-events: none; }
+  .preloader-content { text-align: center; padding: 20px 30px; }
+  .preloader-logo {
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #00ff41, #00cc33, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 24px;
   }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-  
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(0, 255, 65, 0.4);
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    pointer-events: none;
-  }
-  
-  @keyframes ripple-animation {
-    to {
-      transform: scale(4);
-      opacity: 0;
-    }
-  }
-  
-  .card, .gallery-item {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .btn {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+  .preloader-bar {
+    width: 320px; max-width: 70vw; height: 6px; border-radius: 10px;
+    background: rgba(255,255,255,0.08);
     overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    margin: 0 auto 12px;
   }
+  .preloader-bar-fill {
+    display: block; height: 100%; width: 40%; border-radius: 10px;
+    background: linear-gradient(90deg, #00ff41, #00cc33, #00ff88);
+    animation: preloader-slide 1.2s ease-in-out infinite;
+  }
+  .preloader-text { color: rgba(255,255,255,0.7); font-size: 14px; }
+  @keyframes preloader-slide { 0%{ transform: translateX(-100%);} 50%{ transform: translateX(10%);} 100%{ transform: translateX(120%);} }
+
+  .fade-in { opacity: 1 !important; transform: translateY(0) !important; }
   
-  input, textarea {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  .floating-card { animation: float 6s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0px);} 50% { transform: translateY(-10px);} }
   
-  .navbar {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  .ripple { position: absolute; border-radius: 50%; background: rgba(0, 255, 65, 0.4); transform: scale(0); animation: ripple-animation 0.6s linear; pointer-events: none; }
+  @keyframes ripple-animation { to { transform: scale(4); opacity: 0; } }
   
-  /* Enhanced hover states */
-  .card:hover, .gallery-item:hover {
-    transform: translateY(-15px) scale(1.03);
-  }
-  
-  /* Smooth transitions for all interactive elements */
-  * {
-    transition-property: transform, box-shadow, border-color, background-color;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  .card, .gallery-item { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+  .btn { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+  input, textarea { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+  .navbar { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+  /* Smooth transitions for interactive elements */
+  * { transition-property: transform, box-shadow, border-color, background-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 `;
 document.head.appendChild(style);
