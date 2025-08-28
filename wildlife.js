@@ -61,7 +61,7 @@ for (let i = 1; i <= totalImages; i++) {
 
   // Create image element
   const img = document.createElement("img");
-  img.src = `https://web-gallery-images.s3.eu-north-1.amazonaws.com/images/wildlife/w${i}.jpg`;  // S3 bucket path
+  img.src = `https://vaultgallery.s3.eu-north-1.amazonaws.com/images/wildlife/w${i}.jpg`;  // S3 bucket path
   img.alt = `Wildlife ${i}`;
 
   // Create download link

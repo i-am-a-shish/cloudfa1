@@ -84,7 +84,7 @@ const galleryContainer = document.getElementById("galleryContainer");
 const totalImages = 20; // Example: n1.jpg → n20.jpg
 
 // Base URL of your S3 bucket
-const baseURL = "https://web-gallery-images.s3.eu-north-1.amazonaws.com/images/nature/";
+const baseURL = "https://vaultgallery.s3.eu-north-1.amazonaws.com/images/nature/";
 
 for (let i = 1; i <= totalImages; i++) {
   const div = document.createElement("div");

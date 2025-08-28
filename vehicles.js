@@ -56,7 +56,7 @@ const galleryContainer = document.getElementById("galleryContainer");
 const totalImages = 20; // For v1.jpg to v20.jpg
 
 // Base S3 URL
-const baseURL = "https://web-gallery-images.s3.eu-north-1.amazonaws.com/images/vehicles";
+const baseURL = "https://vaultgallery.s3.eu-north-1.amazonaws.com/images/vehicles";
 
 for (let i = 1; i <= totalImages; i++) {
   const div = document.createElement("div");
