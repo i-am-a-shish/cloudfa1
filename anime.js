@@ -61,7 +61,7 @@ for (let i = 1; i <= totalImages; i++) {
 
   // Create image element
   const img = document.createElement("img");
-  img.src = `https://web-gallery-images.s3.eu-north-1.amazonaws.com/images/anime/a${i}.jpg`;  // ✅ Updated to S3 bucket
+  img.src = `https://vaultgallery.s3.eu-north-1.amazonaws.com/images/anime/a${i}.jpg`;  // ✅ Updated to S3 bucket
   img.alt = `Anime ${i}`;
 
   // Create download link
